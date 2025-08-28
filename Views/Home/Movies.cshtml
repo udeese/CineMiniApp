@@ -2,30 +2,51 @@
 @model List<CineMini.Models.Movie>
 
 @{
-    ViewData["Title"] = ViewData["Title"] ?? "CineMini";
-
-    var pageTitle = (string?)ViewData["Title"];
-    var lastUpdated = (string?)ViewData["LastUpdated"];
-    var totalMovies = (int)ViewBag.TotalMovies;
+    // set page from viewdata (browser tab)
+    ViewData["Title"] = "CineMini Movie Listings";
 }
 
-<div>
-    <h1>@pageTitle <span>(Total: @totalMovies</span></h1>
-    <p>Last updated:</p>
-    <div>
-        @foreach (var movie in Model)
-        {
-            <div>
-                <h2>@movie.Title</h2>
-                <div>@movie.Genre @movie.ReleaseYear</div>
+<div class="container mt-4">
+    @* page heading using viewdata and viewbag *@
+    <h1 class="mb-3">
+        @ViewData["Title"]
+        <small class="text-muted">(Total: @ViewBag.TotalMovies)</small>
+    </h1>
 
-                <div>
-                    @if (movie.IsFeatured){
-                        <span>Featured</span>
-                    }
-                    else if (movie.IsClassic) {
-                        <span>Standard</span>
-                    }
+    @* show when data was last updated *@
+    <p><strong>Last Updated:</strong> @ViewData["LastUpdated"]</p>
+
+    <hr />
+
+    @* movie list!! *@
+    <div class="row">
+        @foreach (var movie in Model) // loops through movies list
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        @* movie title *@
+                        <h4 class="card-title">@movie.Title</h4>
+
+                        @* movie genre and year *@
+                        <p class="card-text">
+                            <em>@movie.Genre</em> @movie.ReleaseYear
+
+                            @* conditonals *@
+                            @if (movie.IsFeatured)
+                            {
+                                <span class="badge bg-success">Featured</span>
+                            }
+                            else if  (movie.IsClassic)
+                            {
+                                <span class="badge bd-primary">Classic</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Standard</span>
+                            }
+                        </p>
+                    </div>
                 </div>
             </div>
         }

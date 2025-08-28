@@ -1,7 +1,7 @@
 // data model for movies in CineMini
-
 namespace CineMini.Models
 {
+    // movie model holds the data to be displayed in the view
     public class Movie
     {
         // identifier for movie

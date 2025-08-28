@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using CineMini.Models;
+using CineMini.Models; // import movie model so controller can use it
 
 namespace CineMini.Controllers 
 {
@@ -34,7 +34,7 @@ namespace CineMini.Controllers
         public IActionResult Movies()
         {
 
-            // in-memory list of movie objects
+            // in-memory list of movie objects, the mini database
             var movies = new List<Movie>
             {
                 new Movie { Id = 1, Title = "2001: A Space Odyssey", Genre = "Sci-Fi", ReleaseYear = 1968, IsFeatured = false, IsClassic = true },
@@ -47,14 +47,14 @@ namespace CineMini.Controllers
                 new Movie { Id = 8, Title = "Pan's Labyrinth", Genre = "Fantasy", ReleaseYear = 2006, IsFeatured = true, IsClassic = false },
                 new Movie { Id = 9, Title = "Psycho", Genre = "Horror", ReleaseYear = 1960, IsFeatured = false, IsClassic = true },
                 new Movie { Id = 10, Title = "District 9", Genre = "Sci-Fi", ReleaseYear = 2009, IsFeatured = false, IsClassic = false },
-                new Movie { Id = 11, Title = "A Knight's Tale", Genre = "Fantasy", ReleaseYear = 2001, IsFeatured = false, IsClassic = false },
+                new Movie { Id = 11, Title = "A Knight's Tale", Genre = "Fantasy", ReleaseYear = 2001, IsFeatured = false, IsClassic = false }, // one of my favorite movies
                 new Movie { Id = 12, Title = "Mad Max: Fury Road", Genre = "Action", ReleaseYear = 2015, IsFeatured = true, IsClassic = false },
             };
 
-            // viewdata & viewbag pass small page bits of metadata to the view
-            ViewData["Title"] = "CineMini Movie Listings"; // page title (string)
-            ViewData["LastUpdated"] = DateTime.Now.ToShortDateString(); // date
-            ViewBag.TotalMovies = movies.Count; // dynamic property, operations resolved at runtime
+            // pass metadata using viewdata and viewbag
+            ViewData["Title"] = "CineMini Movie Listings"; // set browsers tab title
+            ViewData["LastUpdated"] = DateTime.Now.ToShortDateString(); // shows todays date
+            ViewBag.TotalMovies = movies.Count; // dynamic property, operations resolved at runtime. passes total number of movies
 
             // passes the full list to the view
             // makes the view a strongly typed view
