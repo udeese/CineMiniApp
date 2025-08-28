@@ -2,7 +2,8 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using CineMini.Models;
 
-namespace CineMini.Controllers {
+namespace CineMini.Controllers 
+{
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -28,10 +29,12 @@ namespace CineMini.Controllers {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        // GET /movies
         [HttpGet("movies")]
         public IActionResult Movies()
         {
 
+            // in-memory list of movie objects
             var movies = new List<Movie>
             {
                 new Movie { Id = 1, Title = "2001: A Space Odyssey", Genre = "Sci-Fi", ReleaseYear = 1968, IsFeatured = false, IsClassic = true },
@@ -47,10 +50,15 @@ namespace CineMini.Controllers {
                 new Movie { Id = 11, Title = "A Knight's Tale", Genre = "Fantasy", ReleaseYear = 2001, IsFeatured = false, IsClassic = false },
                 new Movie { Id = 12, Title = "Mad Max: Fury Road", Genre = "Action", ReleaseYear = 2015, IsFeatured = true, IsClassic = false },
             };
-    ViewData["Title"] = "CineMini Movie Listings";
-    ViewData["LastUpdated"] = DateTime.Now.ToShortDateString();
-    ViewBag.TotalMovies = movies.Count;
-    return View(movies);
+
+            // viewdata & viewbag pass small page bits of metadata to the view
+            ViewData["Title"] = "CineMini Movie Listings"; // page title (string)
+            ViewData["LastUpdated"] = DateTime.Now.ToShortDateString(); // date
+            ViewBag.TotalMovies = movies.Count; // dynamic property, operations resolved at runtime
+
+            // passes the full list to the view
+            // makes the view a strongly typed view
+            return View(movies);
         }
     }
 }
