@@ -1,0 +1,33 @@
+@using CineMini.Models
+@model List<CineMini.Models.Movie>
+
+@{
+    ViewData["Title"] = ViewData["Title"] ?? "CineMini";
+
+    var pageTitle = (string?)ViewData["Title"];
+    var lastUpdated = (string?)ViewData["LastUpdated"];
+    var totalMovies = (int)ViewBag.TotalMovies;
+}
+
+<div>
+    <h1>@pageTitle <span>(Total: @totalMovies</span></h1>
+    <p>Last updated:</p>
+    <div>
+        @foreach (var movie in Model)
+        {
+            <div>
+                <h2>@movie.Title</h2>
+                <div>@movie.Genre @movie.ReleaseYear</div>
+
+                <div>
+                    @if (movie.IsFeatured){
+                        <span>Featured</span>
+                    }
+                    else if (movie.IsClassic) {
+                        <span>Standard</span>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,8 @@
+C:\Users\udees\CineMiniApp\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\udees\CineMiniApp\obj\Debug\net9.0\CineMiniApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\udees\CineMiniApp\obj\Debug\net9.0\CineMiniApp.AssemblyInfoInputs.cache
+C:\Users\udees\CineMiniApp\obj\Debug\net9.0\CineMiniApp.AssemblyInfo.cs
+C:\Users\udees\CineMiniApp\obj\Debug\net9.0\CineMiniApp.csproj.CoreCompileInputs.cache
+C:\Users\udees\CineMiniApp\obj\Debug\net9.0\CineMiniApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\udees\CineMiniApp\obj\Debug\net9.0\CineMiniApp.RazorAssemblyInfo.cache
+C:\Users\udees\CineMiniApp\obj\Debug\net9.0\CineMiniApp.RazorAssemblyInfo.cs
