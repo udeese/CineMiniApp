@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CineMiniApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e30d20d16bae54a14c8ba673a6c11cef08afdda2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f03552982c37f1dca0eb003bfdfcc8cd7b820027")]
 [assembly: System.Reflection.AssemblyProductAttribute("CineMiniApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CineMiniApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
